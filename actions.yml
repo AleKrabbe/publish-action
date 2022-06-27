@@ -1,0 +1,13 @@
+name: "Publish Package"
+description: "Publish NPM Package"
+inputs:
+  package_name: # name of the package to be published
+    description: "Name of the package to be published"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: cd packages/${{ inputs.package_name }}
+      shell: bash
+    - run: npm install
+      shell: bash
